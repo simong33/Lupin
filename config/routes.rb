@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "/:user" => "users#show", as: :user_dashboard
   get "/:user/competitors/new" => "competitors#new"
   post "/:user/competitors" => "competitors#create", as: :user_competitors
+  post "/:user/targets" => "targets#create", as: :user_targets
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -5,19 +5,19 @@
 </div>
 
 <div class="container">
-  <h3>My targets</h3>
+  <h3>People I followed</h3>
+</div>
+<%= render "follows/form" %>
+<div class="container">
+  <% @targets.each do |target| %>
+    <p> <%= target.name %>, follows <%= target.competitor.name %> </p>
+  <% end %>
 </div>
 
-<%= simple_form_for([@user, @competitor], remote: true) do |f| %>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <%= f.input :nickname, error: "Enter the twitter handle" , label: "Competitor alias (without '@'')", placeholder: "s_guillorit"%>
-      </div>
-      <div class="col-xs-12">
-        <%= f.button :submit, value: "Create", class: "btn btn-margin" %>
-      </div>
-    </div>
-    <div id="form-errors"></div>
-  </div>
-<% end %>
+<div class="container">
+  <h3>My competitors</h3>
+  <%= render "competitors/form" %>
+  <% @competitors.each do |competitor| %>
+    <p> <%= competitor.name %> </p>
+  <% end %>
+</div>

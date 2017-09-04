@@ -4,8 +4,7 @@ class CompetitorsController < ApplicationController
 
   def create
     @user = current_user
-    credentials = @user.credentials
-    client = Twitter::REST::Client.new(credentials)
+    client = @user.client
     competitor = Competitor.new(competitor_params)
     competitor_infos = client.user(competitor.nickname)
     competitor.name = competitor_infos.name

@@ -6,6 +6,7 @@ class User < ApplicationRecord
   devise :omniauthable, omniauth_providers: [:twitter]
 
   has_many :competitors
+  has_many :targets, through: :competitors
 
   def self.from_omniauth(auth)
        where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -45,5 +46,10 @@ class User < ApplicationRecord
       access_token: self.token,
       access_token_secret: self.secret
     }
+  end
+
+  def client
+    credentials = self.credentials
+    Twitter::REST::Client.new(credentials)
   end
 end

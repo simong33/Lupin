@@ -1,0 +1,10 @@
+<%= simple_form_for([@user, @target], remote: true) do |f| %>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <%= f.button :submit, value: "Follow!", class: "btn btn-margin" %>
+      </div>
+    </div>
+    <div id="form-errors"></div>
+  </div>
+<% end %>
