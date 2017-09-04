@@ -5,12 +5,21 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
   devise :omniauthable, omniauth_providers: [:twitter]
 
+  has_many :competitors
+
   def self.from_omniauth(auth)
        where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
          user.provider = auth.provider
          user.uid = auth.uid
          user.email = auth.info.email
-         # user.password = Devise.friendly_token[0,20]
+         user.password = Devise.friendly_token[0,20]
+         user.nickname = auth.info.nickname
+         user.name = auth.info.name
+         user.location = auth.info.location
+         user.image = auth.info.image
+         user.description = auth.info.description
+         user.token = auth.credentials.token
+         user.secret = auth.credentials.secret
        end
    end
 
@@ -27,5 +36,14 @@ class User < ApplicationRecord
 
   def password_required?
     super && provider.blank?
+  end
+
+  def credentials
+    {
+      consumer_key: ENV['TWITTER_KEY'],
+      consumer_secret: ENV['TWITTER_SECRET'],
+      access_token: self.token,
+      access_token_secret: self.secret
+    }
   end
 end

@@ -1,0 +1,23 @@
+<div class="container">
+  <h2>  <%= "#{@user.name} (@#{@user.nickname})" %> </h2>
+  <p> <%= @user.location unless @user.location.nil? %> </p>
+  <p id="user-description"> <%= @user.description %> </p>
+</div>
+
+<div class="container">
+  <h3>My targets</h3>
+</div>
+
+<%= simple_form_for([@user, @competitor], remote: true) do |f| %>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <%= f.input :nickname, error: "Enter the twitter handle" , label: "Competitor alias (without '@'')", placeholder: "s_guillorit"%>
+      </div>
+      <div class="col-xs-12">
+        <%= f.button :submit, value: "Create", class: "btn btn-margin" %>
+      </div>
+    </div>
+    <div id="form-errors"></div>
+  </div>
+<% end %>
