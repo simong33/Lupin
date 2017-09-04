@@ -6,6 +6,7 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
+    <%= link_to 'Sign in with Twitter', user_twitter_omniauth_authorize_path %>
 
     <% if user_signed_in? %>
 
