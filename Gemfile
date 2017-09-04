@@ -9,6 +9,7 @@ gem 'puma'
 gem 'rails', '5.0.5'
 gem 'redis'
 gem 'omniauth-twitter'
+gem 'twitter'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
