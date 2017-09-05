@@ -9,6 +9,7 @@ class CompetitorsController < ApplicationController
     competitor_infos = client.user(competitor.nickname)
     competitor.name = competitor_infos.name
     competitor.user_id = @user.id
+    competitor.active = true
     competitor.save
   end
 
