@@ -1,14 +1,14 @@
-<h3 class="text-center">You Followed</h3>
+<h3 class="text-center">Common Followers (<%= @targets.size %>)</h3>
 <% @targets.each do |target| %>
   <div class="following">
     <img class="avatar-large" src=" <%= target.image %> ">
     <div class="following-info">
       <h3><%= target.name %></h3>
       <p> <%= target.location %></p>
-      <p><strong> <%= "Follows #{target.competitor.name}" %> </strong></p>
     </div>
     <div class="following-body">
       <p>
+        <a href="https://www.twitter.com/<%= target.nickname %>" > LINK TO PROFILE</a>
       </p>
     </div>
     <div class="following-time">
