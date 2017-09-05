@@ -1,0 +1,22 @@
+<h3 class="text-center">You Followed</h3>
+<% @targets.each do |target| %>
+  <div class="following">
+    <img class="avatar-large" src=" <%= target.image %> ">
+    <div class="following-info">
+      <h3><%= target.name %></h3>
+      <p> <%= target.location %></p>
+      <p><strong> <%= "Follows #{target.competitor.name}" %> </strong></p>
+    </div>
+    <div class="following-body">
+      <p>
+      </p>
+    </div>
+    <div class="following-time">
+      <p class="date"><%= target.created_at.strftime("at %I:%M%p") %></p>
+      <p class="hour"><%= target.created_at.strftime("%F")%></p>
+    </div>
+  </div>
+<% end %>
+
+<%= render "follows/form" %>
+

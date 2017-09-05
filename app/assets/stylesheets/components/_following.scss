@@ -1,0 +1,56 @@
+.following {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid rgba(220,224,244,0.4);
+}
+.following:last-child {
+  border-bottom: none;
+}
+.following-body {
+  flex-grow: 1;
+}
+.following-info {
+  padding-left: 10px;
+  min-width: 100px;
+}
+.following-info h3 {
+  font-size: 13px;
+  margin-bottom: 0px;
+}
+.following-info p {
+  font-size: 13px;
+  font-weight: lighter;
+  opacity: 0.6;
+  margin-top: 5px;
+}
+.following-body {
+  text-align: center;
+  padding-right: 20px;
+  font-size: 13px;
+  color: rgba(0,0,0,0.7);
+}
+.following-body {
+  padding-left: 20px;
+  color: rgba(0,0,0,0.4);
+}
+.following-body strong{
+  color: rgba(0,0,0,0.9);
+  color: rgba(0,0,0,0.9);
+}
+.following-body p {
+  margin: 6px 0;
+}
+.following-time {
+  font-size: 14px;
+  font-weight: bold;
+}
+.status.accepted {
+  color: #04A366;
+}
+.status.declined {
+  color: red;
+}
+.hour {
+  color: lightgrey;
+}

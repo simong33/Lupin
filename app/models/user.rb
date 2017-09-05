@@ -5,8 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
   devise :omniauthable, omniauth_providers: [:twitter]
 
-  has_many :competitors
+  has_many :competitors, dependent: :destroy
   has_many :targets, through: :competitors
+  has_many :follows, dependent: :destroy
 
   def self.from_omniauth(auth)
        where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -18,6 +19,7 @@ class User < ApplicationRecord
          user.name = auth.info.name
          user.location = auth.info.location
          user.image = auth.info.image
+         user.background_image = auth.extra.raw_info.profile_background_image_url_https
          user.description = auth.info.description
          user.token = auth.credentials.token
          user.secret = auth.credentials.secret
