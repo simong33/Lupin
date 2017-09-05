@@ -1,23 +1,19 @@
+<%= render 'banner' %>
 <div class="container">
-  <h2>  <%= "#{@user.name} (@#{@user.nickname})" %> </h2>
-  <p> <%= @user.location unless @user.location.nil? %> </p>
-  <p id="user-description"> <%= @user.description %> </p>
-</div>
-
-<div class="container">
-  <h3>People I followed</h3>
-</div>
-<%= render "follows/form" %>
-<div class="container">
-  <% @targets.each do |target| %>
-    <p> <%= target.name %>, follows <%= target.competitor.name %> </p>
-  <% end %>
-</div>
-
-<div class="container">
-  <h3>My competitors</h3>
-  <%= render "competitors/form" %>
-  <% @competitors.each do |competitor| %>
-    <p> <%= competitor.name %> </p>
-  <% end %>
+  <div class="row"></div>
+    <div class="col-xs-8">
+      <div class="activity">
+        <%= render 'feed' %>
+      </div>
+    </div>
+    <div class="col-xs-4">
+      <div class="competitors">
+        <h3>My competitors</h3>
+        <%= render "competitors/form" %>
+        <% @competitors.each do |competitor| %>
+          <p> <%= competitor.name %> </p>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

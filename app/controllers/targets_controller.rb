@@ -8,6 +8,10 @@ class TargetsController < ApplicationController
     target.name = client.user(target.uid.to_i).name
     client.follow(target.uid.to_i)
     target.competitor = competitor
+    target.description = client.user(target.uid.to_i).description
+    target.email = client.user(target.uid.to_i).email
+    target.location = client.user(target.uid.to_i).location
+    target.image = client.user(target.uid.to_i).profile_image_url.to_s
     target.save
     follow = Follow.create(user_id: @user.id, target_id: target.id)
   end

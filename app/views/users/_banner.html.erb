@@ -1,0 +1,9 @@
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('http://abs.twimg.com/images/themes/theme1/bg.png');">
+  <div class="banner-content">
+    <%= image_tag current_user.image, class: "avatar-large" %>
+    <h1>  <%= @user.name %> </h1>
+    <p> <%= @user.location unless @user.location.nil? %> </p>
+    <p id="user-description"> <%= @user.description %> </p>
+    <a class="btn btn-primary btn-lg">Start now</a>
+  </div>
+</div>
