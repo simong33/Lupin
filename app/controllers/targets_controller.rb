@@ -2,7 +2,7 @@ class TargetsController < ApplicationController
   def create
     @user = current_user
     client = @user.client
-    competitor = @user.competitors.sample
+    competitor = @user.competitors.where(active: true).sample
     target = Target.new
     target.uid = client.follower_ids(competitor.nickname).attrs[:ids].sample
     target.name = client.user(target.uid.to_i).name

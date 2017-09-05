@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <% @competitors.each do |competitor| %>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card" style="background-color: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('#');">
+          <div class="card-category"><%= competitor.active ? "Active" : "Disabled"%></div>
+          <div class="card-description">
+            <h2><%= competitor.name %></h2>
+            <p><%= competitor.location %></p>
+          </div>
+          <img class="card-user" src="<%= competitor.image %>">
+          <a class="card-link" href="https://twitter.com/<%= competitor.nickname %>" ></a>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
