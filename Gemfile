@@ -11,6 +11,8 @@ gem 'redis'
 gem 'omniauth-twitter'
 gem 'twitter'
 
+
+
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
@@ -26,4 +28,6 @@ group :development, :test do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'sidekiq'
+  gem 'sidekiq-failures', '~> 1.0'
 end
